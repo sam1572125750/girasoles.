@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PAGINA DE SAM</title>
+</head>
+<body>
+    <h1>"BIENVENIDA A LA MASACRE"</h1>
+    <img src="https://cdn0.ecologiaverde.com/es/posts/7/9/5/tulipan_princesa_irene_2597_0_600.jpg" alt="100 tulipanes">
+
+    <button id="ejecutarFlorButton">CLICK ACA SI ERES FEA</button>
+    <button id="ejecutarGirasolButton">MEJOR PRESIONA ARRIBA</button>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            display: grid;
+            place-items: center;
+        }
+
+        h1 {
+            color: #007bff;
+            width: 500px;
+            display: flex;
+            justify-content: center; /* Centrar horizontalmente */
+            align-items: center; /* Centrar verticalmente */
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        /* Estilos para los botones */
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center; /* Centrar horizontalmente */
+            align-items: center; /* Centrar verticalmente */
+            margin: 10px; /* Margen entre los botones */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos para la imagen */
+        img {
+            width: 500px; /* Ancho de la imagen */
+            height: auto; /* Altura automática para mantener la proporción original */
+            border: 2px solid #333; /* Borde de 2 píxeles sólido */
+            border-radius: 10px; /* Borde redondeado */
+            box-shadow: 3px 3px 5px #888888; /* Sombra */
+            display: flex;
+            justify-content: center; /* Centrar horizontalmente */
+            align-items: center; /* Centrar verticalmente */
+        }
+    </style>
+
+    <script>
+        // Función para ejecutar el script de Python
+        function ejecutarPythonScript(scriptName) {
+            // Usa Fetch API para hacer una solicitud GET a la ruta "/ejecutar" con el nombre del script
+            fetch(`/ejecutar/${scriptName}`)
+                .then(response => response.text())
+                .then(data => alert(data))
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Asocia la función a la acción de hacer clic en los botones
+        document.getElementById("ejecutarFlorButton").addEventListener("click", () => ejecutarPythonScript("flor.py"));
+        document.getElementById("ejecutarGirasolButton").addEventListener("click", () => ejecutarPythonScript("girasol.py"));
+    </script>
+</body>
+</html>
